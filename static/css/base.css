@@ -73,14 +73,14 @@ body {
 /* -------------------------------- Media Queries */
 
 /* Slightly larger container on xl screens */
-@media (min-width: 1200px) {
+@media screen and (min-width: 1200px) {
     .container {
         max-width: 80%;
     }
 }
 
 /* fixed top navbar only on medium and up */
-@media (min-width: 992px) {
+@media screen and (min-width: 992px) {
     .fixed-top-desktop-only {
         position: fixed;
         top: 0;
