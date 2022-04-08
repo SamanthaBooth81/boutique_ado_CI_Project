@@ -30,6 +30,7 @@
       "corejs",
       "csrfmiddlewaretoken",
       "forloop",
+      "Neue",
       "postloadjs"
    ]
 }
