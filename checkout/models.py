@@ -8,11 +8,16 @@ from django.conf import settings
 from django_countries.fields import CountryField
 
 from products.models import Products
+from profiles.models import UserProfile
 
 
 class Order(models.Model):
     """Order Model"""
     order_number = models.CharField(max_length=32, null=False, editable=False)
+    # models.SET_NULL allows a copy of the order to stay in the admin if
+    # a user deletes their profile
+    user_profile = models.ForeignKey(
+        UserProfile, on_delete=models.SET_NULL, null=True, blank=True, related_name='orders')
     full_name = models.CharField(max_length=50, null=False, blank=False)
     email = models.EmailField(max_length=254, null=False, blank=False)
     phone_number = models.CharField(max_length=20, null=False, blank=False)
@@ -69,8 +74,8 @@ class Order(models.Model):
 
 class OrderLineItem(models.Model):
     """line items model"""
-    order = models.ForeignKey(Order, null=False, blank=False,
-                              on_delete=models.CASCADE, related_name='lineitems')
+    order = models.ForeignKey(
+        Order, null=False, blank=False, on_delete=models.CASCADE, related_name='lineitems')
     product = models.ForeignKey(
         Products, null=False, blank=False, on_delete=models.CASCADE)
     product_size = models.CharField(
