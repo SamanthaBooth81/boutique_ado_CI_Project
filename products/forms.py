@@ -1,13 +1,13 @@
 """Product Form for Super User"""
 from django import forms
-from .models import Product, Category
+from .models import Products, Category
 
 
 class ProductForm(forms.ModelForm):
     """Product Form class for super user to upload products"""
     class Meta:
         """Form Metadata"""
-        model = Product
+        model = Products
         fields = '__all__'  # will include all fields
 
     def __init__(self, *args, **kwargs):
