@@ -1,5 +1,6 @@
 """Product Form for Super User"""
 from django import forms
+from .widgets import CustomClearableFileInput
 from .models import Products, Category
 
 
@@ -9,6 +10,9 @@ class ProductForm(forms.ModelForm):
         """Form Metadata"""
         model = Products
         fields = '__all__'  # will include all fields
+
+    image = forms.ImageField(
+        label='Image', required=False, widget=CustomClearableFileInput)
 
     def __init__(self, *args, **kwargs):
         """Override init method to change the categories
