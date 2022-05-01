@@ -25,6 +25,7 @@
    "editor.defaultFormatter": "HookyQR.beautify",
    "cSpell.words": [
       "autohide",
+      "boto",
       "Bulma",
       "corecss",
       "corejs",
