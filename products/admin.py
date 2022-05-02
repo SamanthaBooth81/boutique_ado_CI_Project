@@ -4,7 +4,9 @@ from .models import Products, Category
 
 # Register your models here.
 
+
 class ProductAdmin(admin.ModelAdmin):
+    """Product Admin"""
     list_display = (
         'sku',
         'name',
@@ -16,11 +18,14 @@ class ProductAdmin(admin.ModelAdmin):
 
     ordering = ('sku',)
 
+
 class CategoryAdmin(admin.ModelAdmin):
+    """Category Admin"""
     list_display = (
         'friendly_name',
         'name',
     )
+
 
 admin.site.register(Products, ProductAdmin)
 admin.site.register(Category, CategoryAdmin)
